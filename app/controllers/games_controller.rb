@@ -29,4 +29,21 @@ class GamesController < ApplicationController
     @number_of_views = params[:visit].to_i
     render "counter_view.html.erb"
   end
+
+  def guess_form_method
+    render "guess_form.html.erb"
+  end
+
+  def guess_form_result_method
+    @guess = params[:guessed_number].to_i
+    @answer = 42
+    if @guess > @answer
+      @message = "Your guess is too high!"
+    elsif @guess < @answer
+      @message = "Your guess is too low!"
+    else
+      @message = "Your answer is correct!"
+    end
+    render "guess_form_result.html.erb"
+  end
 end

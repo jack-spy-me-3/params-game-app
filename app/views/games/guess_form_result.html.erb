@@ -1,0 +1,6 @@
+<p><%= @message %></p>
+<% if @guess == @answer  %>
+  <a href="/guess_form_url">Please play again!</a>
+<% else %>
+  <a href="/guess_form_url">Try again!</a>
+<% end %>
